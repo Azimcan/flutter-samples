@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import 'package:animation/widgets/animated/ripple.dart';
+import 'package:animation/widgets/animated/breath.dart';
 import 'package:animation/routes/fadeInFadeOutRoute.dart';
-import 'breathPage.dart';
+import 'info.dart';
 
-class Info extends StatefulWidget {
-  Info({Key key}) : super(key: key);
+class BreathPage extends StatefulWidget {
+  BreathPage({Key key}) : super(key: key);
   @override
   _State createState() => new _State();
 }
 
-class _State extends State<Info> {
-  void _newPage() {
+class _State extends State<BreathPage> {
+  void _infoPage() {
     setState(() {
       Navigator.pop(context);
       Navigator.push(
         context,
-        FadeInFadeOutRoute(builder: (context) => new BreathPage()),
+        FadeInFadeOutRoute(builder: (context) => new Info()),
       );
     });
   }
@@ -28,21 +28,21 @@ class _State extends State<Info> {
       body: Container(
         decoration: new BoxDecoration(
           image: DecorationImage(
-            image: new AssetImage('images/2.jpg'),
+            image: new AssetImage('images/3.jpg'),
             fit: BoxFit.cover,
           ),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
           child: Center(
-            child: Ripple(
-              diameter: 200,
+            child: Breath(
+              diameter: 100,
               child: IconButton(
-                icon: Icon(Icons.arrow_forward_outlined),
+                icon: Icon(Icons.arrow_back),
                 color: Colors.redAccent,
                 iconSize: 45,
-                tooltip: "New Page",
-                onPressed: _newPage,
+                tooltip: "Info",
+                onPressed: _infoPage,
               ),
             ),
           ),

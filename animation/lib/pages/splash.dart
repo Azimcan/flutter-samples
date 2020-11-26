@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 import 'dart:async';
 
 import '../routes/fadeInFadeOutRoute.dart';
@@ -43,13 +44,16 @@ class _State extends State<Splash> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Text(
-            'Info',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              fontSize: 50.0,
-              color: Colors.white,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+          child: Center(
+            child: Text(
+              'Splash',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                fontSize: 50.0,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
